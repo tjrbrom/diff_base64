@@ -150,6 +150,17 @@ PUT request on unsupported media type.
     "timeStamp": "2020-08-19T09:00:09.450484400Z"
 }
 ```
+```
+PUT request with missing base64EncodedData.
+{
+  "error": "Invalid input detected. Is base64EncodedData value present?",
+  "status": 400,
+  "timeStamp": "2020-08-19T11:26:55.958180100Z",
+  "errors": [
+    "must not be null"
+  ]
+}
+```
 ## Database
 H2 in-memory, access through console: http://localhost:8080/scalableweb/h2-console
 <br><br>

@@ -106,7 +106,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
         ErrorDetails errorDetails =
                 new ErrorDetails(
-                        "Invalid input detected.",
+                        "Invalid input detected. Is base64EncodedData value present?",
                         HttpStatus.BAD_REQUEST.value(),
                         Instant.now(),
                         ex.getBindingResult().getAllErrors().stream()
