@@ -32,7 +32,7 @@ public class DifferenceApplication {
 }
 ```
 ## REST API
-
+The REST API for this application is described below.
 #### Send data on the left endpoint
 
 Request
@@ -44,6 +44,7 @@ curl -X PUT "http://localhost:8080/scalableweb/v1/diff/1/left" -H "accept: appli
 ```
 Response
 ```
+HTTP/1.1 200 
 connection: keep-alive 
 content-type: application/json 
 date: Tue, 18 Aug 2020 20:17:03 GMT 
@@ -66,6 +67,7 @@ curl -X PUT "http://localhost:8080/scalableweb/v1/diff/1/right" -H "accept: appl
 ```
 Response
 ```
+HTTP/1.1 200 
 connection: keep-alive 
 content-type: application/json 
 date: Tue, 18 Aug 2020 20:20:10 GMT 
@@ -88,6 +90,7 @@ curl -X GET "http://localhost:8080/scalableweb/v1/diff/1" -H "accept: applicatio
 ```
 Response
 ```
+HTTP/1.1 200
 connection: keep-alive 
 content-type: application/json 
 date: Tue, 18 Aug 2020 20:21:27 GMT 
