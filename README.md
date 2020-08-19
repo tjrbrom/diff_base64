@@ -99,8 +99,8 @@ transfer-encoding: chunked
 }
 ```
 #### Other Responses
-GET request on non-existing Diff
 ```
+GET request on non-existing Diff
 {
   "error": "Resource Not Found",
   "status": 404,
@@ -108,8 +108,8 @@ GET request on non-existing Diff
   "timeStamp": "2020-08-19T08:21:47.918533600Z"
 }
 ```
-GET request on Diff with either side null
 ```
+GET request on Diff with either side null
 {
   "error": "Missing information.",
   "status": 400,
@@ -117,8 +117,8 @@ GET request on Diff with either side null
   "timeStamp": "2020-08-19T08:25:26.500712200Z"
 }
 ```
-PUT request on non-base64 value
 ```
+PUT request on non-base64 value
 {
   "error": "Illegal argument given.",
   "status": 400,
@@ -126,20 +126,20 @@ PUT request on non-base64 value
   "timeStamp": "2020-08-19T08:27:13.679200100Z"
 }
 ```
-GET request on equal diff values
 ```
+GET request on equal diff values.
 {
   "message": "Left and right are the same."
 }
 ```
-GET request on different size diff values
 ```
+GET request on different size diff values.
 {
   "message": "Left and right are of different sizes."
 }
 ```
-PUT request on unsupported media type
 ```
+PUT request on unsupported media type.
 {
     "error": "Unsupported media type.",
     "status": 415,
