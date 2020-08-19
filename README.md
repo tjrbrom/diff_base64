@@ -138,6 +138,15 @@ GET request on different size diff values
   "message": "Left and right are of different sizes."
 }
 ```
+PUT request on unsupported media type
+```
+{
+    "error": "Unsupported media type.",
+    "status": 415,
+    "detail": "Content type 'application/x-www-form-urlencoded' not supported",
+    "timeStamp": "2020-08-19T09:00:09.450484400Z"
+}
+```
 ## Database
 H2 in-memory, access through console: http://localhost:8080/scalableweb/h2-console
 <br><br>
