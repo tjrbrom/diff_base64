@@ -16,7 +16,7 @@ It has two main responsibilities:
 ``` 
 ./mvnw spring-boot:run
 ```
-Alternatively, you may execute the Spring Boot application main method directly:
+Alternatively, you may execute the Spring Boot application main method from your IDE:
 ```
 package scalableweb;
 
