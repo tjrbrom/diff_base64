@@ -4,8 +4,8 @@ The purpose of this project is to provide the difference between data of a speci
 It has two main responsibilities:
 * Defines two http endpoints that receive and store JSON Base64 encoded binary data.
 * Defines a third endpoint that responds upon requests to receive the difference between them.
-## Getting Started
-### Requirements
+# Getting Started
+## Requirements
 - jdk 1.8
 - Apache maven (not neccessary since maven wrapper is included)
 ## Build
