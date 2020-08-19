@@ -11,6 +11,8 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * Domain Object that holds base64 encoded binary data as strings, to be compared as part of a diff process.
+ *
+ * <p>Note: The primary key is going to be included in the API HTTP response bodies, for convenience.</p>
  */
 @Entity
 public class Diff {
