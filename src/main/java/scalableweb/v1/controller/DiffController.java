@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,7 +38,7 @@ public class DiffController {
     @ApiOperation(
             value = "Responds upon requests to compute the difference between two sides of a Diff, providing the result if available.",
             notes = "If either left or right side is null, or Diff with specified id does not exist, errors are expected.")
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<DiffCalculationResponse> calculateDifference(@PathVariable Long id) {
 
         DiffCalculationResponse diffCalculationResponse = diffService.calculateDifference(id);
@@ -55,7 +56,7 @@ public class DiffController {
     @ApiOperation(
             value = "Handles requests for base64 binary encoded data to be stored on the left side of a Diff.",
             notes = "If Diff with specified id does not exist, will first create a new Diff with that id.")
-    @PutMapping(value = "/{id}/left")
+    @PutMapping(value = "/{id}/left", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Diff> createDiffLeft(
             @PathVariable Long id, @RequestBody @Valid JsonBase64DTO diffLeft) {
 
@@ -74,7 +75,7 @@ public class DiffController {
     @ApiOperation(
             value = "Handles requests for base64 binary encoded data to be stored on the right side of a Diff.",
             notes = "If Diff with specified id does not exist, will first create a new Diff with that id.")
-    @PutMapping(value = "/{id}/right")
+    @PutMapping(value = "/{id}/right", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Diff> createDiffRight(
             @PathVariable Long id, @RequestBody @Valid JsonBase64DTO diffRight) {
 

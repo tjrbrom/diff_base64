@@ -131,7 +131,8 @@ public class DiffServiceTest {
         diffService.saveRight(ID, new JsonBase64DTO(right));
 
         DiffCalculationResponse response = diffService.calculateDifference(ID);
-        assertEquals(response.getDifferentOffsets(), "[15, 16, 17, 19, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 45, 46, 47, 48, 49, 50, 51, 68]");
+        assertEquals(response.getDifferentOffsets(),
+                "[15, 16, 17, 19, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 45, 46, 47, 48, 49, 50, 51, 68]");
     }
 
     @Test

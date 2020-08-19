@@ -17,15 +17,15 @@ public class Diff {
 
     @Id
     @Column
-    @ApiModelProperty(notes = "Id of Diff", name="id", required=true)
+    @ApiModelProperty(notes = "Id of Diff", name = "id", required = true)
     private Long id;
 
     @Column(name = "DIFF_LEFT")
-    @ApiModelProperty(notes = "Id of Diff", name="left", required=false)
+    @ApiModelProperty(notes = "Id of Diff", name = "left", required = false)
     private String left;
 
     @Column(name = "DIFF_RIGHT")
-    @ApiModelProperty(notes = "Right side of Diff", name="right", required=false)
+    @ApiModelProperty(notes = "Right side of Diff", name = "right", required = false)
     private String right;
 
     public Diff() {

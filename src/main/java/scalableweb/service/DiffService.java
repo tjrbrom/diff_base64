@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.apache.commons.codec.binary.Base64;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,8 @@ import scalableweb.repository.IDiffRepository;
  */
 @Service
 public class DiffService implements IDiffService {
+
+    Logger LOGGER = LoggerFactory.getLogger(DiffService.class);
 
     @Value("${differentSize}")
     private String differentSize;
@@ -48,6 +52,7 @@ public class DiffService implements IDiffService {
             return calculateDifference(diffOpt.get());
         }
 
+        LOGGER.warn("Diff with id {} not found", id);
         throw new ResourceNotFoundException("Diff with id " + id + " not found");
     }
 
@@ -101,6 +106,7 @@ public class DiffService implements IDiffService {
 
         if (!Base64.isBase64(base64Data)) {
 
+            LOGGER.warn(wrongFormat);
             throw new NotBase64Exception(wrongFormat);
         }
 
@@ -116,6 +122,7 @@ public class DiffService implements IDiffService {
 
         if (left == null || right == null) {
 
+            LOGGER.warn("Base64 data values are missing, for diff {}.", diff.getId());
             throw new MissingInformationException(
                     String.format("Base64 data values are missing, for diff {%s}.", diff.getId()));
         }

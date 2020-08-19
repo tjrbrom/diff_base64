@@ -7,12 +7,16 @@ It has two main responsibilities:
 ## Getting Started
 ### Requirements
 - jdk 1.8
-- Apache maven
+- Apache maven (not neccessary since maven wrapper is included)
 ## Build
-``` mvn clean install -DskipTests ```
-<br>
+``` 
+./mvnw clean install
+```
 ## Run
-Execute the Spring Boot application main method:
+``` 
+./mvnw spring-boot:run
+```
+Alternatively, you may execute the Spring Boot application main method directly:
 ```
 package scalableweb;
 
@@ -36,7 +40,7 @@ Request
 PUT /v1/diff/1/left
 ```
 ```
-curl -X PUT "http://localhost:8080/scalableweb/v1/diff/1/left" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"base64EncodedData\": \"ewogInBsYW5ldCIgOiAicGx1dG8iLAogInNpemUiIDogIjZrbSIsCiAibWFzcyIgOiAiM2tnIiwKICJ0aW1lIiA6ICI3c2Vjb25kIgp9\"}"
+curl -X PUT "http://localhost:8080/scalableweb/v1/diff/1/left" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"base64EncodedData\": \"ewogInBsYW5ldCIgOiAicGx1dG8iLAogInNpemUiIDogIjZrbSIsCiAibWFzcyIgOiAiM2tnIiwKICJ0aW1lIiA6ICI3c2Vjb25kIgp9\"}"
 ```
 Response
 ```
@@ -58,7 +62,7 @@ Request
 PUT /v1/diff/1/right
 ```
 ```
-curl -X PUT "http://localhost:8080/scalableweb/v1/diff/1/right" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"base64EncodedData\": \"ewogInBsYW5ldCIgOiAiZWFydGgiLAogInNpeiIgOiAiMWttIiwKICJtYXNzIiA6ICIxN2tnIiwKICJ0aW1lIiA6ICIxc2Vjb25kIgp9\"}"
+curl -X PUT "http://localhost:8080/scalableweb/v1/diff/1/right" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"base64EncodedData\": \"ewogInBsYW5ldCIgOiAiZWFydGgiLAogInNpeiIgOiAiMWttIiwKICJtYXNzIiA6ICIxN2tnIiwKICJ0aW1lIiA6ICIxc2Vjb25kIgp9\"}"
 ```
 Response
 ```
@@ -80,7 +84,7 @@ Request
 GET /v1/diff/1
 ```
 ```
-curl -X GET "http://localhost:8080/scalableweb/v1/diff/1" -H "accept: */*"
+curl -X GET "http://localhost:8080/scalableweb/v1/diff/1" -H "accept: application/json"
 ```
 Response
 ```
@@ -94,8 +98,49 @@ transfer-encoding: chunked
   "differentOffsets": "[15, 16, 17, 19, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 45, 46, 47, 48, 49, 50, 51, 68]"
 }
 ```
+#### Other Responses
+GET request on non-existing Diff
+```
+{
+  "error": "Resource Not Found",
+  "status": 404,
+  "detail": "Diff with id 12 not found",
+  "timeStamp": "2020-08-19T08:21:47.918533600Z"
+}
+```
+GET request on Diff with either side null
+```
+{
+  "error": "Missing information.",
+  "status": 400,
+  "detail": "Base64 data values are missing, for diff {1}.",
+  "timeStamp": "2020-08-19T08:25:26.500712200Z"
+}
+```
+PUT request on non-base64 value
+```
+{
+  "error": "Illegal argument given.",
+  "status": 400,
+  "detail": "Last encoded character (before the paddings if any) is a valid base 64 alphabet but not a possible value",
+  "timeStamp": "2020-08-19T08:27:13.679200100Z"
+}
+```
+GET request on equal diff values
+```
+{
+  "message": "Left and right are the same."
+}
+```
+GET request on different size diff values
+```
+{
+  "message": "Left and right are of different sizes."
+}
+```
 ## Database
-H2 in-memory console: http://localhost:8080/scalableweb/h2-console
-
+H2 in-memory, access through console: http://localhost:8080/scalableweb/h2-console
+<br><br>
+Check the application.properties file for connection information.
 ## Swagger Documentation
-http://localhost:8080/scalableweb/swagger-ui.html
+Interactive documentation: http://localhost:8080/scalableweb/swagger-ui.html
