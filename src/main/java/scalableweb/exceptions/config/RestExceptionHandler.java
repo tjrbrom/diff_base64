@@ -7,6 +7,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -75,6 +76,21 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                         Instant.now());
 
         return new ResponseEntity<>(errorDetails, null, HttpStatus.BAD_REQUEST);
+    }
+
+    @Override
+    protected ResponseEntity<Object> handleHttpMediaTypeNotSupported(
+            HttpMediaTypeNotSupportedException ex, HttpHeaders headers, HttpStatus status,
+            WebRequest request) {
+
+        ErrorDetails errorDetails =
+                new ErrorDetails(
+                        "Unsupported media type.",
+                        HttpStatus.UNSUPPORTED_MEDIA_TYPE.value(),
+                        ex.getMessage(),
+                        Instant.now());
+
+        return new ResponseEntity<>(errorDetails, null, HttpStatus.UNSUPPORTED_MEDIA_TYPE);
     }
 
     @Override
