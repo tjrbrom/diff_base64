@@ -6,7 +6,7 @@ It has two main responsibilities:
 * Defines a third endpoint that responds upon requests to receive the difference between them.
 # Getting Started
 ## Requirements
-- jdk 1.8
+- jdk 1.8 or later
 - Apache maven (not neccessary since maven wrapper is included)
 ## Build
 ``` 
