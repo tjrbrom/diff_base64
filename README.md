@@ -33,6 +33,9 @@ public class DifferenceApplication {
 ```
 ## REST API
 The REST API for this application is described below.
+
+The servlet context path is "/scalableweb"
+
 #### Send data on the left endpoint
 
 Request
@@ -103,7 +106,7 @@ transfer-encoding: chunked
 ```
 #### Other Responses
 ```
-GET request on non-existing Diff
+GET on non-existing Diff
 {
   "error": "Resource Not Found",
   "status": 404,
@@ -112,7 +115,7 @@ GET request on non-existing Diff
 }
 ```
 ```
-GET request on Diff with either side null
+GET on Diff with either side null
 {
   "error": "Missing information.",
   "status": 400,
@@ -121,7 +124,7 @@ GET request on Diff with either side null
 }
 ```
 ```
-PUT request on non-base64 value
+PUT on non-base64 value
 {
   "error": "Illegal argument given.",
   "status": 400,
@@ -130,19 +133,19 @@ PUT request on non-base64 value
 }
 ```
 ```
-GET request on equal diff values.
+GET on equal diff values.
 {
   "message": "Left and right are the same."
 }
 ```
 ```
-GET request on different size diff values.
+GET on different size diff values.
 {
   "message": "Left and right are of different sizes."
 }
 ```
 ```
-PUT request on unsupported media type.
+PUT on unsupported media type.
 {
     "error": "Unsupported media type.",
     "status": 415,
@@ -151,7 +154,7 @@ PUT request on unsupported media type.
 }
 ```
 ```
-PUT request with missing base64EncodedData.
+PUT with missing base64EncodedData.
 {
   "error": "Invalid input detected. Is base64EncodedData value present?",
   "status": 400,

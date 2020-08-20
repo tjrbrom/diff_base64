@@ -54,8 +54,7 @@ public class DiffController {
      * @return the updated {@link Diff}
      */
     @ApiOperation(
-            value = "Handles requests for base64 binary encoded data to be stored on the left side of a Diff.",
-            notes = "If Diff with specified id does not exist, will first create a new Diff with that id.")
+            value = "Handles requests for base64 binary encoded data to be stored on the left side of a Diff.")
     @PutMapping(value = "/{id}/left", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Diff> createDiffLeft(
             @PathVariable Long id, @RequestBody @Valid JsonBase64DTO diffLeft) {
@@ -73,8 +72,7 @@ public class DiffController {
      * @return the updated {@link Diff}
      */
     @ApiOperation(
-            value = "Handles requests for base64 binary encoded data to be stored on the right side of a Diff.",
-            notes = "If Diff with specified id does not exist, will first create a new Diff with that id.")
+            value = "Handles requests for base64 binary encoded data to be stored on the right side of a Diff.")
     @PutMapping(value = "/{id}/right", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Diff> createDiffRight(
             @PathVariable Long id, @RequestBody @Valid JsonBase64DTO diffRight) {
