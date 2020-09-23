@@ -35,7 +35,6 @@ public class DifferenceApplication {
 The REST API for this application is described below.
 
 The servlet context path is "/scalableweb"
-
 #### Send data on the left endpoint
 
 Request
@@ -170,3 +169,15 @@ H2 in-memory, access through console: http://localhost:8080/scalableweb/h2-conso
 Check the application.properties file for connection information.
 ## Swagger Documentation
 Interactive documentation: http://localhost:8080/scalableweb/swagger-ui.html
+## Dockerize
+```
+./mvnw clean install
+
+cd /docker
+
+# create an image using Dockerfile
+docker build -t diff-api .
+
+# run it in a container
+docker run -d -p 8080:8080 --name diffapi diff-api
+```
