@@ -18,7 +18,7 @@ It has two main responsibilities:
 ```
 Alternatively, you may execute the Spring Boot application main method from your IDE:
 ```
-package scalableweb;
+package tobase64;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -34,7 +34,7 @@ public class DifferenceApplication {
 ## REST API
 The REST API for this application is described below.
 
-The servlet context path is "/scalableweb"
+The servlet context path is "/tobase64"
 #### Send data on the left endpoint
 
 Request
@@ -42,7 +42,7 @@ Request
 PUT /v1/diff/1/left
 ```
 ```
-curl -X PUT "http://localhost:8080/scalableweb/v1/diff/1/left" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"base64EncodedData\": \"ewogInBsYW5ldCIgOiAicGx1dG8iLAogInNpemUiIDogIjZrbSIsCiAibWFzcyIgOiAiM2tnIiwKICJ0aW1lIiA6ICI3c2Vjb25kIgp9\"}"
+curl -X PUT "http://localhost:8080/tobase64/v1/diff/1/left" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"base64EncodedData\": \"ewogInBsYW5ldCIgOiAicGx1dG8iLAogInNpemUiIDogIjZrbSIsCiAibWFzcyIgOiAiM2tnIiwKICJ0aW1lIiA6ICI3c2Vjb25kIgp9\"}"
 ```
 Response
 ```
@@ -65,7 +65,7 @@ Request
 PUT /v1/diff/1/right
 ```
 ```
-curl -X PUT "http://localhost:8080/scalableweb/v1/diff/1/right" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"base64EncodedData\": \"ewogInBsYW5ldCIgOiAiZWFydGgiLAogInNpeiIgOiAiMWttIiwKICJtYXNzIiA6ICIxN2tnIiwKICJ0aW1lIiA6ICIxc2Vjb25kIgp9\"}"
+curl -X PUT "http://localhost:8080/tobase64/v1/diff/1/right" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"base64EncodedData\": \"ewogInBsYW5ldCIgOiAiZWFydGgiLAogInNpeiIgOiAiMWttIiwKICJtYXNzIiA6ICIxN2tnIiwKICJ0aW1lIiA6ICIxc2Vjb25kIgp9\"}"
 ```
 Response
 ```
@@ -88,7 +88,7 @@ Request
 GET /v1/diff/1
 ```
 ```
-curl -X GET "http://localhost:8080/scalableweb/v1/diff/1" -H "accept: application/json"
+curl -X GET "http://localhost:8080/tobase64/v1/diff/1" -H "accept: application/json"
 ```
 Response
 ```
@@ -164,11 +164,11 @@ PUT with missing base64EncodedData.
 }
 ```
 ## Database
-H2 in-memory, access through console: http://localhost:8080/scalableweb/h2-console
+H2 in-memory, access through console: http://localhost:8080/tobase64/h2-console
 <br><br>
 Check the application.properties file for connection information.
 ## Swagger Documentation
-Interactive documentation: http://localhost:8080/scalableweb/swagger-ui.html
+Interactive documentation: http://localhost:8080/tobase64/swagger-ui.html
 ## Dockerize
 ```
 ./mvnw clean install

@@ -8,7 +8,7 @@
         <version>2.3.3.RELEASE</version>
         <relativePath/>
     </parent>
-    <groupId>scalableweb</groupId>
+    <groupId>tobase64</groupId>
     <artifactId>difference</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>difference</name>
@@ -84,7 +84,7 @@
                             <goal>repackage</goal>
                         </goals>
                         <configuration>
-                            <mainClass>scalableweb.DifferenceApplication</mainClass>
+                            <mainClass>tobase64.DifferenceApplication</mainClass>
                             <outputDirectory>${project.basedir}/docker</outputDirectory>
                         </configuration>
                     </execution>
