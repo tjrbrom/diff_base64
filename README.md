@@ -1,4 +1,4 @@
-# Scalable Web
+# Diff base64
 The purpose of this project is to provide the difference between data of a specific format.
 <br><br>
 It has two main responsibilities:
