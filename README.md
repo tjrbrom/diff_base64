@@ -181,5 +181,3 @@ docker build -t diff-api .
 # run it in a container
 docker run -d -p 8080:8080 --name diffapi diff-api
 ```
-
-(merge a pr without code review and get a github achievement omg)
